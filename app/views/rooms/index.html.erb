@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2>Available Meeting Rooms</h2>
+</div>
+
+<div class="row">
+  <% @rooms.each do |room| %>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title text-primary"><%= room.name %></h5>
+          <p class="card-text text-muted">
+            <strong>Capacity:</strong> <%= room.capacity %> seats
+          </p>
+          <%= link_to "View & Book", room_path(room), class: "btn btn-primary w-100" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

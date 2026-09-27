@@ -1,0 +1,46 @@
+<div class="card shadow-sm mb-4">
+  <div class="card-body">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <h2 class="card-title"><%= @room.name %></h2>
+        <h6 class="text-muted">Maximum capacity: <%= @room.capacity %> seats</h6>
+      </div>
+      <%= link_to "+ Book a Seat", new_reservation_path(room_id: @room.id), class: "btn btn-success btn-lg" %>
+    </div>
+  </div>
+</div>
+
+<h4 class="mb-3">Current Reservations</h4>
+
+<% if @reservations.any? %>
+  <div class="card shadow-sm">
+    <table class="table table-hover mb-0">
+      <thead class="table-light">
+      <tr>
+        <th>Guest Name</th>
+        <th>Start</th>
+        <th>End</th>
+        <th class="text-end">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @reservations.each do |res| %>
+        <tr>
+          <td class="fw-bold"><%= res.guest_name %></td>
+          <td><%= res.start_date.strftime("%Y-%m-%d %H:%M") %></td>
+          <td><%= res.end_date.strftime("%Y-%m-%d %H:%M") %></td>
+          <td class="text-end">
+            <%= link_to "Edit", edit_reservation_path(res), class: "btn btn-sm btn-outline-secondary" %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <div class="alert alert-secondary">No reservations yet.</div>
+<% end %>
+
+<div class="mt-4">
+  <%= link_to "&larr; Back to list".html_safe, root_path, class: "text-decoration-none" %>
+</div>

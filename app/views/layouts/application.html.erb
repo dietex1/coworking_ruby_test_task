@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= content_for(:title) || "Coworking Booking" %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Coworking / Meeting Rooms</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= yield :head %>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <%= stylesheet_link_tag "application" %>
+</head>
 
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+  <div class="container">
+    <%= link_to "Meeting Rooms", root_path, class: "navbar-brand" %>
+    <div class="d-flex">
+      <%= link_to "Add Room", new_room_path, class: "btn btn-outline-light btn-sm" %>
+    </div>
+  </div>
+</nav>
 
-  <body>
-    <%= yield %>
-  </body>
+<div class="container">
+  <% if notice %>
+    <div class="alert alert-success alert-dismissible fade show"><%= notice %></div>
+  <% end %>
+  <% if alert %>
+    <div class="alert alert-danger alert-dismissible fade show"><%= alert %></div>
+  <% end %>
+
+  <%= yield %>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
