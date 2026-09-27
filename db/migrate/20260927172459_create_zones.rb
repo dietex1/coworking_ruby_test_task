@@ -1,6 +1,6 @@
-class CreateZones < ActiveRecord::Migration[7.2]
+class CreateRooms < ActiveRecord::Migration[7.2]
   def change
-    create_table :zones do |t|
+    create_table :roomes do |t|
       t.string :name
       t.text :description
       t.integer :capacity
