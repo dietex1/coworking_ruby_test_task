@@ -6,7 +6,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
-      redirect_to room_path(@reservation.room), notice: 'Reservation created.'
+      redirect_to room_path(@reservation.room), notice: "Reservation created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -19,7 +19,7 @@ class ReservationsController < ApplicationController
   def update
     @reservation = Reservation.find(params[:id])
     if @reservation.update(reservation_params)
-      redirect_to room_path(@reservation.room), notice: 'Reservation updated.'
+      redirect_to room_path(@reservation.room), notice: "Reservation updated."
     else
       render :edit, status: :unprocessable_entity
     end

@@ -21,13 +21,13 @@ class Reservation < ApplicationRecord
     return if overlapping.size < room.capacity
 
     events = [
-      [start_date, 1],
-      [end_date, -1]
+      [ start_date, 1 ],
+      [ end_date, -1 ]
     ]
 
     overlapping.each do |res|
-      events << [res.start_date, 1]
-      events << [res.end_date, -1]
+      events << [ res.start_date, 1 ]
+      events << [ res.end_date, -1 ]
     end
 
     events.sort!
