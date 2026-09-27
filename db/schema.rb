@@ -10,24 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_09_27_172501) do
+ActiveRecord::Schema[7.2].define(version: 2026_09_27_181437) do
   create_table "reservations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "zone_id", null: false
+    t.bigint "room_id", null: false
     t.string "guest_name"
     t.datetime "start_date"
     t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["zone_id"], name: "index_reservations_on_zone_id"
+    t.index ["room_id"], name: "index_reservations_on_room_id"
   end
 
-  create_table "zones", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "rooms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
-    t.text "description"
     t.integer "capacity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "reservations", "zones"
+  add_foreign_key "reservations", "rooms"
 end
