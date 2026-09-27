@@ -1,0 +1,16 @@
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow-sm mt-4">
+      <div class="card-header bg-success text-white">
+        <h4 class="mb-0">Book a Seat</h4>
+      </div>
+      <div class="card-body">
+        <%= render 'form', reservation: @reservation %>
+      </div>
+    </div>
+
+    <div class="mt-3 text-center">
+      <%= link_to "&larr; Back to room".html_safe, room_path(@reservation.room_id), class: "text-decoration-none" if @reservation.room_id %>
+    </div>
+  </div>
+</div>
