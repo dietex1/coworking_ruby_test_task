@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  zone: one
+  guest_name: MyString
+  start_date: 2026-09-27 19:25:01
+  end_date: 2026-09-27 19:25:01
+
+two:
+  zone: two
+  guest_name: MyString
+  start_date: 2026-09-27 19:25:01
+  end_date: 2026-09-27 19:25:01
